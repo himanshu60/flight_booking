@@ -5,7 +5,8 @@ const {flightRouter}=require("./routes/flight.route")
 const {bookRouter}=require("./routes/booking.route")
 const {auth}=require("./middleware/auth")
 const app = express();
-
+const cors=require("cors")
+app.use(cors())
 app.use(express.json());
 app.use("/",userRouter)
 app.use(auth)
