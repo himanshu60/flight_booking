@@ -39,8 +39,8 @@ flightRouter.get("/api/flights/:id", async (req, res) => {
 flightRouter.patch("/api/flights/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    await flightModel.findByIdAndUpdate({ _id: id });
-    res.status(201).send("flight updated sucessful");
+    await flightModel.findByIdAndUpdate({ _id: id },req.body);
+    res.status(204).send("flight updated sucessful");
   } catch (error) {
     res.status(404).json({ msg: error.message });
   }
